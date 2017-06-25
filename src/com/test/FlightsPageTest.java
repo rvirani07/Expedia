@@ -34,7 +34,6 @@ public class FlightsPageTest extends BaseTest {
 	@Test (priority=1, enabled=true)
 	public void testClearFlightOrigin() throws InterruptedException {
 		Configuration.log.info("Now executing testClearFlightsOrigin");
-		fp.clickFlightsLink();
 		fp.clearFlightOrigin();
 		Assert.assertEquals(pd.getPageText("id_origin"), "");
 	}
