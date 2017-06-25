@@ -9,15 +9,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -76,6 +68,10 @@ public class PageDriver { // Factory Design Pattern
 		driver.manage().window().maximize();
 		
 		driver.get(pageDriverConfig.URL);
+		WebElement e = driver.findElement(By.xpath("//*[@id='redirectBanner']/div/a/strong"));
+		if(e.isDisplayed()){
+			e.click();
+		}
 	}
 
 	public WebDriver startFirefox()
@@ -110,7 +106,7 @@ public class PageDriver { // Factory Design Pattern
 	public WebDriver startChrome()
 	{
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("user-data-dir=D:\\Rahul\\Selenium\\Competible Package\\latest Chrome 2.3\\Chrome\\User Data\\Default");
+		//options.addArguments("user-data-dir=D:\\Rahul\\Selenium\\Competible Package\\latest Chrome 2.3\\Chrome\\User Data\\Default");
 		options.addArguments("--start-maximized");
         options.addArguments("-disable-cache");
 
