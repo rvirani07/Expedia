@@ -222,7 +222,7 @@ public class FlightsPageTest extends BaseTest {
 		Configuration.log.info("Results page contains " + count + " flight options");
 	}
 
-	@Test(priority=8,enabled=true)
+	@Test(priority=8,enabled=false)
 	public void contactUs()
 	{
 		pd.findPageElement("id_support_button").click();
@@ -260,8 +260,10 @@ public class FlightsPageTest extends BaseTest {
 
 		if (result.getStatus() == ITestResult.FAILURE) {
 			ExcelUtil.setData(row, col, "fail");
+			System.out.println("########## Test Failed");
 		} else {
 			ExcelUtil.setData(row, col, "pass");
+			System.out.println("########## Test Passed");
 		}
 	}
 
